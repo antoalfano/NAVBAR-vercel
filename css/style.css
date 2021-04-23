@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background: rgb(116, 51, 102);
+    background: linear-gradient(
+        90deg,
+        rgb(116, 51, 102) 0%,
+        rgb(236, 148, 202) 52%,
+        rgba(116, 51, 102) 100%
+    );
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: #5d495d;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo{
+    color: rgb(226, 226, 226);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 20px;
+    transition: linear;
+}
+
+.nav-links{
+    display: flex;
+    justify-content: space-around; /* para separar los links pongo primero un space around y luego juego con el width para darle espacio entre uno y otro*/
+    width: 30%;
+}
+
+.nav-links li{
+    list-style: none;/*para quitar los puntos de las listas*/
+
+}
+
+.nav-links a{
+    color: rgb(226, 226, 226);
+    text-decoration: none; /*para quitar el subrayado de las letras*/
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.nav-links a:hover{
+    color: #201920;
+    font-size: 12px;
+}
+
+.burger{
+    display: none;
+    cursor: pointer;
+}
+
+.burger div{
+    width: 25px;
+    height: 3px;
+    background-color: rgb(226, 226, 226);
+    margin: 5px;
+}
+
+@media all and (max-width:1024px){
+    .nav-links{
+        width: 60%;
+    }
+}
+
+@media all and (max-width:768px){
+    body{
+        overflow-x: hidden; /*para ocultar los links*/
+    }
+
+    .nav-links{
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: #5d495d;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.4s ease-in; /*al hacer click en la burger abre lentamente los link*/
+    }
+
+    .nav-links li{
+        opacity: 0;
+    }
+
+    .burger{
+        display: block;
+    } /*deja de ocultarse y se muestra*/
+
+}
+
+.nav-active{
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
